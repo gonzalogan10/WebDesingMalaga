@@ -25,7 +25,7 @@ header{
     background-color: var(--accent-light);
     color: var(--white);
     padding: 8px 0;
-    position: sticky;
+    position: fixed;
     height: 56px;
     width: 100%;
     top: 0;
@@ -36,19 +36,21 @@ header{
 
 header .inner{
     display: flex;
-    justify-content: space-between; /* left + right */
+    justify-content: space-between; /* title left, logo right */
     align-items: center;
-    gap: 30px;
-    padding: 0 16px;
     max-width: 1200px;
-    margin: 0 ;
+    margin: 0 auto;        /* center container */
+    padding: 0;            /* remove extra padding */
     height: 100%;
 }
 
 header h1 {
     font-size: 2em;
-    margin: 0;
+    margin: 0;             /* remove margin-left */
+    padding-left: 50px;
 }
+
+
 
 header h1 a {
     color: var(--white);
@@ -61,7 +63,6 @@ header h1 a:hover {
 }
 
 header #main {
-  margin-left: 15%;
   text-align: left;
 }
 header #Section {
@@ -77,18 +78,16 @@ header #Section {
     width: 100%;
     z-index: 105;
     background-color: var(--accent-light);
-    padding-left: 15%;
 }
 
+/* Navigation menu */
 .menu ul {
     display: flex;
     list-style: none;
     gap: 25px;
-    flex-wrap: wrap;
-    justify-content: left;
-    padding: 0 16px;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding-left: 50px;            /* remove default padding */
+    margin: 0 auto;        /* center menu within max-width */
+    max-width: 1200px;     /* same width as header .inner */
 }
 
 .menu a {
@@ -104,7 +103,14 @@ header #Section {
     color: var(--dark);
     border-bottom-color: var(--accent-light);
 }
-
+.columns .mainContent #elPimpi, #casaLola, #laInma, #metro, #airport, #hotelMiramar{
+    scroll-margin-top: 120px;
+    margin-bottom: 40px;
+    font-size: 20px;
+}
+.columns .mainContent #elPimpi h2, #casaLola h2, #laInma h2, #metro h2, #airport h2, #hotelMiramar h2{
+    font-size: 30px;
+}
 .columns {
   display: flex;
   gap: 20px;
@@ -123,14 +129,16 @@ header #Section {
   min-width: 150px;
 }
 .columns .servicesMenu ul {
-  margin-top: 30%;
+  margin-top: 1%;
 }
 .columns .servicesMenu ul li {
   list-style-type: none;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   background-color: rgba(0,0,0,0.05);
   border-radius: 20px;
   text-align: center;
+  font-size: 18px;
+  font-weight: bold;
 }
 .columns .servicesMenu ul li:hover{
   background-color: rgba(100, 181, 246, 0.3);
@@ -171,7 +179,7 @@ footer #authors {
 
 
 /* Estilos para la sección El Pimpi: foto a la derecha en forma circular */
-.pimpi-row {
+.photo-row {
   display: flex;
   gap: 20px;
   align-items: flex-start;
