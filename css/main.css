@@ -1,0 +1,169 @@
+/* Variables de color */
+:root {
+    --white: #ffffff;
+    --dark: #1a1a1a;
+    --accent-light: #64b5f6;
+}
+
+/* Estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
+}
+
+html, body {
+    height: 100%;
+}
+
+/* Evitar scroll de la página y mantener el hero fijo a la ventana */
+body {
+    overflow: hidden;
+}
+
+/* Header */
+header{
+    background: rgba(0,0,0,0.3);
+    color: var(--white);
+    padding: 8px 0;
+    position: fixed;
+    height: 56px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+    z-index: 110;
+}
+
+header .inner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 0 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+header h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+header h1 a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+header h1 a:hover {
+    color: var(--accent-light);
+}
+
+/* Menú de navegación */
+.menu {
+    padding: 12px 0;
+    position: fixed;
+    background: rgba(0,0,0,0.3);
+    top: 56px;
+    left: 0;
+    width: 100%;
+    z-index: 105;
+}
+
+.menu ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.menu a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    border-bottom: 3px solid transparent;
+    padding-bottom: 5px;
+}
+
+.menu a:hover,
+.menu a.active {
+    color: var(--accent-light);
+    border-bottom-color: var(--accent-light);
+}
+
+/* Hero section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 40px;
+    padding: 0 20px;
+    height: 100vh; /* ocupar toda la ventana */
+    /* Fondo local - coloca Main.jpg dentro de la carpeta images */
+    background-image: url('../images/Main.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+}
+
+.hero-content {
+    max-width: 1100px;
+    padding: 20px 30px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 8px;
+}
+
+.hero-content h2 {
+    font-size: clamp(32px, 6.5vw, 72px);
+    font-weight: 800;
+    color: var(--white);
+    margin: 0 0 8px 0;
+    line-height: 1.02;
+    text-shadow: 0 6px 20px rgba(0,0,0,0.6);
+}
+
+.hero-content p {
+    font-size: 1.1em;
+    color: #f0f0f0;
+    margin: 0;
+}
+
+/* Se eliminaron los estilos de la galería (ya no existe en el HTML) */
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        padding: 40px 20px;
+        gap: 30px;
+    }
+
+    .hero-content h2 {
+        font-size: 2em;
+    }
+
+    .menu ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    header .inner {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
