@@ -1,0 +1,246 @@
+:root {
+    --white: #ffffff;
+    --dark: rgb(26, 26, 26);
+    --accent-light: rgb(100, 181, 246);
+    scroll-behavior: smooth;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
+}
+
+html, body {
+    height: 100%;
+}
+
+/* Header */
+header{
+    background-color: var(--accent-light);
+    color: var(--white);
+    padding: 8px 0;
+    position: fixed;
+    height: 56px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+    z-index: 110;
+}
+
+header .inner{
+    display: flex;
+    justify-content: space-between; /* title left, logo right */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;        /* center container */
+    padding: 0;            /* remove extra padding */
+    height: 100%;
+}
+
+header h1 {
+    font-size: 2em;
+    margin: 0;             /* remove margin-left */
+    padding-left: 50px;
+}
+
+header h1 a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+header h1 a:hover {
+    color: var(--dark);
+}
+
+header #main {
+  text-align: left;
+}
+
+header #Section {
+  text-align: right;
+  margin-right: 5%;
+}
+
+header #logo {
+  margin-top: 40px;
+  padding-right: 30px;
+  height: 70px;
+  width: auto;
+  vertical-align:bottom;
+  justify-content: flex-end;
+}
+
+/* Menú de navegación */
+.menu {
+    padding: 12px 0;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    z-index: 105;
+    background-color: var(--accent-light);
+}
+
+.menu ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    padding-left: 50px;            /* remove default padding */
+    margin: 0 auto;        /* center menu within max-width */
+    max-width: 1200px;     /* same width as header .inner */
+}
+
+.menu a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    border-bottom: 3px solid transparent;
+    padding-bottom: 5px;
+}
+
+.menu a:hover{
+    color: var(--dark);
+    border-bottom-color: var(--accent-light);
+}
+
+
+
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;   
+  justify-items: center;
+  margin: 200px 0;
+  font-size: 20px;
+  line-height: 2;    
+}
+
+.columns .malagaTownHall, .columns .tourismOffice {
+  background-color: var(--accent-light);
+  color: var(--white);
+  padding: 50px;
+  border-radius: 40px;
+  width: 80%;
+  transition: box-shadow 0.4s ease, transform 0.7s cubic-bezier(.25,.8,.25,1);
+}
+.columns .malagaTownHall:hover, .columns .tourismOffice:hover {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+  transform: scale(1.1);
+  
+}
+
+.columns h2 {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 20px;
+  color: #0a2850;
+;
+
+}
+
+.columns p, .columns h4{
+  padding-left: 40px;
+}
+.columns p, .columns .openingHours {
+  transition: transform 0.4s cubic-bezier(.25,.8,.25,1);
+
+}
+
+.columns p:hover, .columns .openingHours:hover {
+  transform: scale(1.02);  
+}
+
+.columns span{
+  font-size: 22px;
+  font-weight: bold;
+  color: rgb(40, 70, 110);
+  padding-right: 10px;
+}
+
+.columns ul{
+  padding-left: 80px;
+}
+
+.link{
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.link:hover {
+  animation: hoverFloat 1.6s ease-in-out infinite;
+}
+
+@keyframes hoverFloat {
+  0%   { transform: translateY(0) rotate(0) scale(1); }
+  25%  { transform: translateY(-4px) rotate(-2deg) scale(1.03); }
+  50%  { transform: translateY(0) rotate(0) scale(1.01); }
+  75%  { transform: translateY(-4px) rotate(2deg) scale(1.03); }
+  100% { transform: translateY(0) rotate(0) scale(1); }
+}
+
+
+footer {
+  background-color: var(--accent-light);
+  color: var(--white);
+  padding: 10px 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.footerContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.credits {
+
+  margin-top: 20px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.attributions {
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 10px;
+}
+
+.attributions a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+
+footer #copyright {
+    flex: 1;
+    text-align: left;
+}
+footer #authors {
+    flex: 1;
+    text-align: right;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+
+footer #authors:hover {
+  color: rgb(40, 70, 110);
+}
