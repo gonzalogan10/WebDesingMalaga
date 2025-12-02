@@ -24,9 +24,9 @@ html, body {
 header{
     background-color: var(--accent-light);
     color: var(--white);
-    padding: 8px 0;
+    padding: 10px 0; /* slightly higher header */
     position: fixed;
-    height: 56px;
+    height: 68px;    /* increased height */
     width: 100%;
     top: 0;
     left: 0;
@@ -42,22 +42,24 @@ header .inner{
     margin: 0 auto;        /* center container */
     padding: 0;            /* remove extra padding */
     height: 100%;
+    position: static;
 }
 
 header h1 {
     font-size: 2em;
-    margin: 0;             /* remove margin-left */
-    padding-left: 50px;
+    margin: 0;
+    padding-left: 50px;    /* restore left alignment for large widths */
 }
 
 /* Navigation menu */
 .menu ul {
     display: flex;
     list-style: none;
-    gap: 25px;
-    padding-left: 50px;            /* remove default padding */
-    margin: 0 auto;        /* center menu within max-width */
-    max-width: 1200px;     /* same width as header .inner */
+    gap: clamp(20px, 3vw, 36px); /* adaptive spacing */
+    padding-left: 0;              /* remove left offset */
+    margin: 0 auto;               /* center menu within max-width */
+    max-width: 1200px;            /* same width as header .inner */
+    justify-content: center;      /* center items horizontally */
 }
 
 
@@ -86,12 +88,13 @@ header #main {
 
 /* Menú de navegación */
 .menu {
-    padding: 12px 0;
-    top: 56px;
+    padding: 16px 0 20px; /* more separation from header + extra bottom */
+    top: 68px;            /* align with new header height */
     left: 0;
     width: 100%;
     z-index: 105;
     background-color: var(--accent-light);
+    
 }
 
 .menu a {
@@ -256,26 +259,64 @@ footer #authors:hover {
   color: rgb(40, 70, 110);
 }
 
-/* -----------------------------------------------------
-   RESPONSIVE DESIGN
------------------------------------------------------ */
-
 /* Large tablets / small laptops */
 @media (max-width: 992px) {
+    /* Center the header title on large tablets / small laptops */
+    header .inner {
+        position: relative;
+    }
+
+    header h1 {
+        padding-left: 0;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        width: auto;
+        max-width: 80%;      /* prevent overlap with logo */
+        white-space: nowrap; /* avoid multi-line title */
+        z-index: 1;          /* ensure title sits above background without affecting logo */
+    }
 
     header h1 {
         padding-left: 20px;
         font-size: 1.6em;
+        
+    }
+
+    /* Keep logo to the right of the centered title and closer to the right margin */
+    header #logo {
+        position: absolute;
+        right: 30px;           /* closer to right margin on narrower screens */
+        top: 9px;              /* align vertically within taller header */
+        margin-top: 0;         /* override large-screen margin */
+        padding-right: 0;      /* avoid extra spacing on the right */
+        
+        z-index: 2;            /* ensure logo sits above background */
+    }
+
+    .menu {
+        color: var(--white);          /* base color white across sizes */
+        margin: 0;
     }
 
     .menu ul {
-        padding-left: 20px;
-        gap: 15px;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;      /* center the list container */
+        justify-content: center;
+        flex-wrap: nowrap;   /* keep items on a single line */
+        gap: clamp(18px, 3vw, 32px); /* larger adaptive spacing on tablets */
+        font-size: clamp(0.9rem, 1.6vw, 1rem); /* adaptive size to fit one line */
+    }
+    .menu ul li{
+        margin-right: 0;     /* spacing handled by gap */
+        white-space: nowrap; /* prevent wrapping of individual items */
     }
 
     .columns {
         gap: 10px;
-        margin-top: 15%;
+        margin-top: 17%;     /* slightly lower to ensure no collision with menu/photo */
     }
 
     .columns .newsMenu {
@@ -288,13 +329,29 @@ footer #authors:hover {
     }
 
     .content img {
-        width: 25vw;
-        height: 25vw;
+        width: 24vw;   /* minor reduction to minimize potential collisions */
+        height: 24vw;
     }
 }
 
 /* Tablets */
 @media (max-width: 768px) {
+    /* Center the header title only on smaller widths */
+    header .inner {
+        position: relative;
+    }
+
+    header h1 {
+        padding-left: 0;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        width: auto;
+        max-width: 80%;
+        white-space: nowrap;
+        z-index: 1;
+    }
 
     /* Header becomes simpler */
     header .inner {
@@ -305,23 +362,16 @@ footer #authors:hover {
         display: none;
     }
 
-    .menu ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-        margin-bottom: 0;
-    }
-
     /* Two-column layout collapses into 1 */
     .columns {
         flex-direction: column;
-        margin-top: 10%;
+        margin-top: 12%; /* more separation from menu */
         padding: 20px;
     }
 
     .columns .newsMenu {
         position: sticky;
-        top: 90px;                 /* Keeps the menu above content */
+        top: 110px;                 /* Keeps the menu above content */
         max-width: 100%;
         margin: 0 auto;
         padding: 0;
@@ -358,7 +408,7 @@ footer #authors:hover {
 
     /* Make the content start lower so the newsMenu doesn't overlap */
     .columns .mainContent {
-        margin-top: 40px;          
+        margin-top: 48px;          /* extra separation below menu */
     }
 
     /* Content layout switches to vertical stack */
@@ -366,7 +416,6 @@ footer #authors:hover {
         grid-template-columns: 1fr;
         text-align: center;
         font-size: 17px;
-        
     }
 
     .columns .mainContent #reyesMagos, #festivalCine, #semanaSanta, #feriaMalaga, #mercadoMedieval {
@@ -385,8 +434,8 @@ footer #authors:hover {
 
     .content img {
         margin: 0 auto;
-        width: 50vw;
-        height: 50vw;
+        width: 48vw;  /* slightly smaller to reduce collision chances */
+        height: 48vw;
     }
 }
 
@@ -454,29 +503,40 @@ footer #authors:hover {
 
 /* Mobile */
 @media (max-width: 480px) {
+    /* Keep h1 centered on very small screens */
+    header .inner {
+        position: relative;
+    }
+    header h1 {
+        padding-left: 0;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        width: auto;
+        max-width: 85%;
+        white-space: nowrap;
+        z-index: 1;
+    }
 
     header h1 {
         padding-left: 10px;
         font-size: 1.3em;
     }
 
-    #logo {
-        display: none;  /* You can remove this if you want to keep the logo */
-    }
-
     .menu ul {
-        gap: 8px;
-        font-size: 0.9em;
+        gap: clamp(12px, 4vw, 20px); /* bigger gap on mobile */
+        font-size: 0.95em;
     }
 
     .columns {
-        margin-top: 20%;
+        margin-top: 10%; /* more separation below menu */
     }
 
     .columns .newsMenu {
-      margin-top: 0;
+      /* margin-top: 40px; */
       padding-top: 40px;
-      top: 65px;  /* Adjusted to fit mobile view */
+      top: 90px;  /* Adjusted to fit mobile view */
       width: 100%;
     }
 
