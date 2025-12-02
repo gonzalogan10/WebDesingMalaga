@@ -137,7 +137,7 @@ header #main {
   background-color: rgba(135, 86, 86, 0.05);
   border-radius: 20px;
   text-align: center;
-  padding: 5px, 5px, 5px, 5px;
+    padding: 5px 5px 5px 5px;
   font-size: 18px;
   font-weight: bold;
   transition: background-color 0.4s ease, transform 0.3s ease;
@@ -262,12 +262,8 @@ footer #authors:hover {
 /* Large tablets / small laptops */
 @media (max-width: 992px) {
     /* Center the header title on large tablets / small laptops */
-    header .inner {
-        position: relative;
-    }
-
+    header .inner { position: relative; }
     header h1 {
-        padding-left: 0;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
@@ -276,12 +272,8 @@ footer #authors:hover {
         max-width: 80%;      /* prevent overlap with logo */
         white-space: nowrap; /* avoid multi-line title */
         z-index: 1;          /* ensure title sits above background without affecting logo */
-    }
-
-    header h1 {
-        padding-left: 20px;
-        font-size: 1.6em;
-        
+        padding-left: 0;     /* no left padding when centered */
+        font-size: 1.6em;    /* keep intended size */
     }
 
     /* Keep logo to the right of the centered title and closer to the right margin */
@@ -337,12 +329,8 @@ footer #authors:hover {
 /* Tablets */
 @media (max-width: 768px) {
     /* Center the header title only on smaller widths */
-    header .inner {
-        position: relative;
-    }
-
+    header .inner { position: relative; padding: 0 15px; }
     header h1 {
-        padding-left: 0;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
@@ -351,16 +339,10 @@ footer #authors:hover {
         max-width: 80%;
         white-space: nowrap;
         z-index: 1;
+        padding-left: 0;
     }
-
-    /* Header becomes simpler */
-    header .inner {
-        padding: 0 15px;
-    }
-
-    #logo {
-        display: none;
-    }
+    
+    #logo { display: none; }
 
     /* Two-column layout collapses into 1 */
     .columns {
@@ -490,13 +472,9 @@ footer #authors:hover {
     .columns .mainContent {
         padding: 10px;
     }
-    .columns .mainContent #reyesMagos, #festivalCine, #semanaSanta, #feriaMalaga, #mercadoMedieval {
-            scroll-margin-top: 230px;
-    }
-
-    .columns .mainContent #reyesMagos, #festivalCine, #semanaSanta, #feriaMalaga, #mercadoMedieval {
-            scroll-margin-top: 260px;
-    }
+        .columns .mainContent #reyesMagos, #festivalCine, #semanaSanta, #feriaMalaga, #mercadoMedieval {
+        scroll-margin-top: 260px;
+        }
 
 }
 
@@ -504,11 +482,8 @@ footer #authors:hover {
 /* Mobile */
 @media (max-width: 480px) {
     /* Keep h1 centered on very small screens */
-    header .inner {
-        position: relative;
-    }
+    header .inner { position: relative; }
     header h1 {
-        padding-left: 0;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
@@ -517,11 +492,8 @@ footer #authors:hover {
         max-width: 85%;
         white-space: nowrap;
         z-index: 1;
-    }
-
-    header h1 {
-        padding-left: 10px;
-        font-size: 1.3em;
+        padding-left: 0;
+        font-size: 1.3em; /* keep intended size without breaking centering */
     }
 
     .menu ul {
@@ -529,9 +501,7 @@ footer #authors:hover {
         font-size: 0.95em;
     }
 
-    .columns {
-        margin-top: 10%; /* more separation below menu */
-    }
+    .columns { margin-top: 10%; }
 
     .columns .newsMenu {
       /* margin-top: 40px; */
