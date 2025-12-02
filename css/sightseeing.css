@@ -266,10 +266,11 @@ footer #authors:hover {
       padding: 5px 8px;
     } 
     .photo img {
-        width: 10%;
-        height: 10%;
-    }
-
+        width: 30vw;
+        height: 30vw;
+        max-width: 220px;
+        max-height: 220px;
+ }
 }
 
 /* Tablets */
@@ -463,4 +464,3 @@ footer #authors:hover {
         padding: 6px;
     }
 }
-
