@@ -263,13 +263,13 @@ footer #authors:hover {
     }
 
     .columns .servicesMenu ul li{
-       padding: 5px 8px;
+      padding: 5px 8px;
+    } 
+    .photo img {
+        width: 10%;
+        height: 10%;
     }
 
-    .photo img {
-        width: 25vw;
-        height: 25vw;
-    }
 }
 
 /* Tablets */
@@ -296,7 +296,7 @@ footer #authors:hover {
     .columns {
         flex-direction: column;
         margin-top: 10%;
-        padding: 20px;
+        padding: 2px;
     }
 
     .columns .servicesMenu {
@@ -304,8 +304,8 @@ footer #authors:hover {
         top: 90px;
         max-width: 100%;
         margin: 0 auto;
-        padding-top: 5px;
-        padding-bottom: 5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
         text-align: center;
         font-size: 12px;
         z-index: 100;
@@ -354,12 +354,10 @@ footer #authors:hover {
 
     .photo {
         width: 100%;
-        display: flex;
         justify-content: center;
     }
 
     .photo img {
-        margin: 0 auto;
         width: 50vw;
         height: 50vw;
     }
@@ -370,8 +368,8 @@ footer #authors:hover {
 
     .columns .servicesMenu {
       width: 100%;
-      padding-top: 5px;
-      padding-bottom: 5px;
+      padding-top: 10px;
+      padding-bottom: 10px;
     }
 
     /* Ocultar texto */
@@ -398,7 +396,7 @@ footer #authors:hover {
         padding: 8px;
         border-radius: 20px;
         height: 50%;
-        width: 15%;
+        width: 10%;
         display: flex;
         justify-content: center;
         align-items: center;
