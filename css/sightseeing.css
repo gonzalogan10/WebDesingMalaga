@@ -69,7 +69,14 @@ header #Section {
   text-align: right;
   margin-right: 5%;
 }
-
+#logo{
+  position: relative;
+  right: 30px;           /* closer to right margin on narrower screens */
+  top: 0px;              /* align vertically within taller header */
+  margin-top: 0;         /* override large-screen margin */
+  padding-right: 10px;      /* avoid extra spacing on the right */
+  z-index: 2;            /* ensure logo sits above background */
+}
 /* Menú de navegación */
 .menu {
     padding: 12px 0;
@@ -88,6 +95,8 @@ header #Section {
     padding-left: 50px;            /* remove default padding */
     margin: 0 auto;        /* center menu within max-width */
     max-width: 1200px;     /* same width as header .inner */
+    gap: clamp(20px, 3vw, 36px); /* adaptive spacing */
+    justify-content: center;      /* center items horizontally */   
 }
 
 .menu a {
@@ -246,7 +255,33 @@ footer #authors:hover {
         padding-left: 20px;
         font-size: 1.6em;
     }
+    header h1 {
+        padding-left: 0;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        width: auto;
+        max-width: 80%;      /* prevent overlap with logo */
+        white-space: nowrap; /*avoid multi-line title */
+        z-index: 1;          /* ensure title sits above background without affecting logo */
+    }
 
+    header h1 {
+        padding-left: 20px;
+        font-size: 1.6em;
+
+    }
+
+    /* Keep logo to the right of the centered title and closer to the right margin */
+    header #logo {
+        position: relative;
+        right: 30px;           /* closer to right margin on narrower screens */
+        top: 0px;              /* align vertically within taller header */
+        margin-top: 0;         /* override large-screen margin */
+        padding-right: 10px;      /* avoid extra spacing on the right */
+        z-index: 2;            /* ensure logo sits above background */
+    }
     .menu ul {
         padding-left: 20px;
         gap: 15px;
@@ -271,6 +306,7 @@ footer #authors:hover {
         max-width: 220px;
         max-height: 220px;
  }
+
 }
 
 /* Tablets */
@@ -304,7 +340,7 @@ footer #authors:hover {
         position: sticky;
         top: 90px;
         max-width: 100%;
-        margin: 0 auto;
+        margin: 0;
         padding-top: 10px;
         padding-bottom: 10px;
         text-align: center;
@@ -341,11 +377,17 @@ footer #authors:hover {
     .columns .mainContent {
         margin-top: 40px;
     }
-
+    .columns .mainContent h2{
+      text-align: center;
+    }
     .columns .mainContent .content {
         grid-template-columns: 1fr;
         text-align: center;
-        font-size: 17px;
+        font-size: 15px;
+    }
+    .columns .mainContent ul {
+    list-style: none;  /* removes bullets */
+    padding-left: 0;   /* removes indentation */
     }
 
     .photo-row {
