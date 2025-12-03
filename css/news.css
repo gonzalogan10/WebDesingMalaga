@@ -144,7 +144,6 @@ header #main {
 }
 .columns .newsMenu ul li:hover{
   background-color: rgba(100, 181, 246, 0.3);
-  
   transform: scale(1.05);
   cursor: pointer;
 }
@@ -178,17 +177,19 @@ header #main {
 
 .columns .mainContent .content {
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 3fr 5fr;
   gap: 20px;
+
+  place-items: center;
 }
 
 .content img {
 
-  width: 20vw;           
-  height: 20vw;          
-  max-width: 200px;     
+  width: 30vw;           
+  height: 30vw;          
+  max-width: 250px;     
   min-width: 150px;      
-  max-height: 200px;     
+  max-height: 250px;     
   min-height: 150px;      
   border-radius: 50%;    
   object-fit: cover;     
@@ -341,7 +342,7 @@ footer #authors:hover {
         z-index: 1;
         padding-left: 0;
     }
-    
+
     #logo { display: none; }
 
     /* Two-column layout collapses into 1 */
