@@ -1,5 +1,3 @@
-    
-
 if(scrollToTopButton){
     window.onscroll = function() {
         if(window.scrollY === 0){

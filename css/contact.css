@@ -1,7 +1,7 @@
 :root {
     --white: #ffffff;
     --dark: rgb(26, 26, 26);
-    --accent-light: rgb(100, 181, 246);
+    --accent-light: #0078ff;
     scroll-behavior: smooth;
 }
 * {
@@ -118,7 +118,8 @@ header #logo {
   display: grid;
   grid-template-columns: 1fr 1fr;   
   justify-items: center;
-  margin: 200px 0;
+  padding-top: 190px;
+  padding-bottom: 100px;
   font-size: 20px;
   line-height: 2;    
 }
@@ -130,6 +131,7 @@ header #logo {
   border-radius: 40px;
   width: 80%;
   transition: box-shadow 0.4s ease, transform 0.7s cubic-bezier(.25,.8,.25,1);
+  container-type: inline-size; /* enable container queries for inner text sizing */
 }
 .columns .malagaTownHall:hover, .columns .tourismOffice:hover {
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
@@ -138,13 +140,13 @@ header #logo {
 }
 
 .columns h2 {
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
   text-align: center;
+  padding-left: 0;
   padding-bottom: 20px;
-  color: #0a2850;
-;
-
+  color: #dcffff;
+  white-space: nowrap;
 }
 
 .columns p, .columns h4{
@@ -152,7 +154,6 @@ header #logo {
 }
 .columns p, .columns .openingHours {
   transition: transform 0.4s cubic-bezier(.25,.8,.25,1);
-
 }
 
 .columns p:hover, .columns .openingHours:hover {
@@ -162,7 +163,7 @@ header #logo {
 .columns span{
   font-size: 22px;
   font-weight: bold;
-  color: rgb(40, 70, 110);
+  color: rgb(180, 205, 230);
   padding-right: 10px;
 }
 
@@ -190,6 +191,37 @@ header #logo {
   100% { transform: translateY(0) rotate(0) scale(1); }
 }
 
+#scrollToTopButton{
+  -webkit-opacity: 0;
+  -khtml-opacity:0 ;
+  opacity: 0;
+  transition: all .2s;
+}
+
+.img-btn-fixed-show{
+  -webkit-opacity: 1!important;
+  -khtml-opacity:1!important ;
+  opacity: 1!important;
+}
+
+.floating-btn {
+    position: fixed;
+    bottom: 110px;
+    right: 20px;
+    padding: 12px 18px;
+    font-size: 16px;
+    background-color: #0078ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 9999;
+}
+
+.floating-btn:hover {
+    background-color: #005fcc;
+}
 
 footer {
   background-color: var(--accent-light);
@@ -211,12 +243,12 @@ footer {
 }
 
 .credits {
-
   margin-top: 20px;
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: center; /* center horizontally */
   align-items: center;
+  gap: 16px;               /* optional spacing between items */
 }
 .attributions {
   margin-bottom: 10px;
@@ -243,4 +275,170 @@ footer #authors {
 
 footer #authors:hover {
   color: rgb(40, 70, 110);
+}
+
+/* -----------------------------------------------------
+   RESPONSIVE DESIGN
+----------------------------------------------------- */
+
+/* Large tablets / small laptops */
+@media (max-width: 992px) {
+  header {
+    padding: 10px 0;    /* slightly higher header */
+    height: 64px;
+  }
+
+  .menu {
+    top: 64px;          /* align with new header height */
+    padding: 14px 0 18px; /* extra bottom space */
+    background-color: var(--accent-light);
+  }
+
+  .menu ul {
+    justify-content: center;
+    padding-left: 0;          /* remove left offset */
+    margin: 0 auto;
+    gap: clamp(18px, 3vw, 32px);
+  }
+
+  .columns {
+    margin: 190px 0;          /* reduce vertical margin */
+    font-size: 19px;
+  }
+
+  .columns .malagaTownHall, .columns .tourismOffice {
+    width: 85%;
+    padding: 40px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+
+  header .inner {
+    padding: 0 15px;
+  }
+
+  #logo {
+    display: none;
+  }
+
+  /* Center the header title on tablets */
+  header .inner { position: relative; }
+  header h1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: auto;
+    padding-left: 0; /* remove left offset when centered */
+    white-space: nowrap;
+  }
+
+  /* Center menu and allow tighter spacing */
+  .menu ul {
+    justify-content: center;
+    gap: clamp(14px, 2.5vw, 24px);
+    padding-left: 0;
+  }
+
+  /* Collapse to a single column */
+  .columns {
+    grid-template-columns: 1fr;
+    row-gap: 300px;
+    font-size: 18px;
+    padding-bottom: 220px;
+    padding-top: 60px;
+  }
+
+  .columns .malagaTownHall, .columns .tourismOffice {
+    width: 90%;
+    padding: 36px;
+  }
+
+  .columns .malagaTownHall:hover, .columns .tourismOffice:hover {
+    transform: scale(1.05);
+  }
+
+  .columns h2 {
+    font-size: 34px;
+    white-space: normal;     /* allow wrapping on smaller screens */
+  }
+
+  .columns p, .columns h4 {
+    padding-left: 24px;      /* tighter left padding */
+  }
+
+  .columns ul {
+    padding-left: 40px;      /* reduce list indent */
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  header {
+    padding: 10px 0;
+    height: 60px;
+  }
+
+  .menu {
+    top: 60px;
+    padding: 14px 0 16px;
+  }
+
+  .menu ul {
+    gap: clamp(10px, 4vw, 18px);
+    font-size: 0.95em;
+    padding-left: 0;
+  }
+
+  .columns {
+    grid-template-columns: 1fr;
+    margin: 120px 0 110px;
+    row-gap: 50px;
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  .columns .malagaTownHall, .columns .tourismOffice {
+    width: 92%;
+    padding: 28px;
+    border-radius: 28px;
+    transform: scale(1.02);
+  }
+
+  .columns h2 {
+    font-size: 28px;
+    padding-bottom: 14px;
+  }
+
+  .columns span {
+    font-size: 20px;
+  }
+
+  .columns p, .columns h4 {
+    padding-left: 18px;
+  }
+
+  .columns ul {
+    padding-left: 28px;
+  }
+
+  .link {
+    width: 26px;
+    height: 26px;
+  }
+
+  footer {
+    font-size: 0.9em;
+    padding: 8px 10px;
+  }
+
+  .footerContent .credits {
+    white-space: nowrap;
+    justify-content: center;
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+
 }
