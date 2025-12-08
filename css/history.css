@@ -3,6 +3,7 @@
     --dark: rgb(26, 26, 26);
     --accent-light: #0078ff;
     scroll-behavior: smooth;
+    min-width: 360px;
 }
 * {
     box-sizing: border-box;
@@ -488,6 +489,7 @@ footer #authors:hover {
 
     .columns .mainContent {
         padding: 10px;
+        margin-top: 60px;
     }
     .columns .mainContent #romanPeriod, #muslimPeriod, #christianReconquer, #modernAge, #malaga19th20th, #actuality {
       scroll-margin-top: 260px;
