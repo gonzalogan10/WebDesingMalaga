@@ -1,5 +1,10 @@
 GITHUB REPOSITORY: https://github.com/gonzalogan10/WebDesingMalaga
 
+AUTHORS:
+
+	- Sergio Escalante Presa
+	- Gonzalo Gandul San Miguel
+
 
 
 Information to put in the project:
